@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <title>Ninja Gold</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <h1 class="title">Ninja Gold</h1>
+
+        <h3>Your Gold: {{request.session.score}}</h3>
+
+        <div class='container row' >
+            <div class='card col'style="width: 18rem;" >
+                <div class="card-body">
+                    <h3>Farm</h3>
+                    <p class="lead">(earn 10-20 golds)</p>
+                    <form action="/process_gold" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="whichbutton" id="farm" value="farm">
+                            <button type="submit" class="btn btn-primary">Find Gold!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class='card col'style="width: 18rem;">
+                <div class="card-body">
+                    <h3>Cave</h3>
+                    <p class="lead">(earn 5-10 golds)</p>
+                    <form action="/process_gold" method="POST">
+                        {% csrf_token %}
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" name="whichbutton" id="cave" value="cave">
+                        <button type="submit" class="btn btn-primary">Find Gold!</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div class='card'style="width: 18rem;">
+                <div class="card-body">
+                    <h3>House</h3>
+                    <p class="lead">(earn 2-5 golds)</p>
+                    <form action="/process_gold" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="whichbutton" id="house" value="house">
+                            <button type="submit" class="btn btn-primary">Find Gold!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class='card'style="width: 18rem;">
+                <div class="card-body">
+                    <h3>Casino</h3>
+                    <p class="lead">(loss/earn 0-50 golds)</p>
+                    <form action="/process_gold" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" name="whichbutton" id="casino" value="casino">
+                            <button type="submit" class="btn btn-primary">Find Gold!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        </body>
+</html>
